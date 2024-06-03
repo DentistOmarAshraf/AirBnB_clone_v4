@@ -30,7 +30,7 @@ function arrange_data (data) {
 /**
  * fetching with POST to api (/api/v1/places_search)
  */
-function getdata (data = {}) {
+function getdata (data={}) {
   fetch('http://localhost:5001/api/v1/places_search', {
     method: 'POST',
     headers: {
@@ -76,7 +76,7 @@ $(document).ready(function () {
 	  while (place_section.firstChild) {
 		  place_section.removeChild(place_section.firstChild);
 	  }
-	  if (amen_ids.length > 0) {
+	  if (amen_ids.length == 0) {
 		  getdata();
 	  } else {
 		  getdata({ amenities: amen_ids });
