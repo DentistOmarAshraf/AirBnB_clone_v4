@@ -15,8 +15,8 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def close_db(error):
-        """ Remove the current SQLAlchemy Session """
-        storage.close()
+    """ Remove the current SQLAlchemy Session """
+    storage.close()
 
 
 @app.route('/4-hbnb/', strict_slashes=False)
@@ -36,11 +36,11 @@ def hbnb():
     places = sorted(places, key=lambda k: k.name)
     cache_id = str(uuid.uuid4())
 
-    return render_template('3-hbnb.html',
-                            states=st_ct,
-                            amenities=amenities,
-                            places=places,
-                            ver=cache_id)
+    return render_template('4-hbnb.html',
+                           states=st_ct,
+                           amenities=amenities,
+                           places=places,
+                           ver=cache_id)
 
 
 if __name__ == "__main__":
